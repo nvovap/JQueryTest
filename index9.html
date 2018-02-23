@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Изучаем библиотеку JQuery</title>
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+
+        <script type="text/javascript">
+            
+            function valid() {
+
+                $('img').hide();
+
+                var state = $("input[name='sex']:checked").val();
+
+
+                if (!state) return $("#message").html('<font style="color:red"> Выберите ПОЛ!!!</font> <br /> <br />');
+
+                console.log(state);
+
+                if (state == 'male') {
+                    $('#imgMale').show();
+                } else {
+                    $('#imgFemale').show();
+                }
+            }
+          
+
+        </script>
+
+
+    </head>
+    <body>
+        
+        <form name="form" id="form">
+            <label for="female">Женский</label>
+            <input type="radio" id="female" onclick="$('#message').html('')" name="sex" value="female" />
+            <label for="male">Мужской</label>
+            <input type="radio" id="male" onclick="$('#message').html('')" name="sex" value="male" />
+            
+            <br /><br />
+
+            <span id="message"></span>
+
+            
+
+            <input type="button" name="done" onclick="return valid()" id="done" value="Готово" />
+        </form>
+
+        <br /><br />
+
+        <img src="1.png" id="imgMale" alt="1" style="display: none" />
+        <img src="book.jpg" id="imgFemale" alt="2" title="2" style="display: none" />
+
+
+    </body>
+</html>
