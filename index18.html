@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,16 +11,19 @@
     </head>
     <body>
        
-        <div class="div">
-            Блок 
-            <p>Абзац</p>
-        </div>
+        <div>Block</div>
+
 
 
         <script type="text/javascript">
-           console.log($("div.div").html());
-           console.log($("div.div").text());
+            //$("<p>It's just Small Text</p>").appendTo($('div')) 
+
+            $("<p>It's just Small Text</p>").prependTo($('div'))
+
+            $("<p>Insert Before</p>").insertBefore($('div'))
+
         </script>
 
     </body>
 </html>
+
