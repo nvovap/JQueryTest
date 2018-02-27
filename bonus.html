@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Изучаем библиотеку JQuery</title>
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+        <script type="text/javascript">
+            
+            // $('div').click(function(event) {
+                
+            // });      
+
+
+            $(document).ready(function($) {
+                console.log('Document ready !!!')
+
+                function getNumber(min, max) {
+                    return Math.floor(Math.random() * (max - min +1)) + min
+                }
+
+
+                $('#addBlock').click(function(event) {
+
+                    var randName = getNumber(1,700)
+                   
+                   $('#blocks').prepend("<div class='block "+randName+"'>"+ randName +"</div>")
+
+                   $("." + randName).css({
+                       "background-color": "#" + getNumber(0,9) + getNumber(0,9) + getNumber(0,9) + getNumber(0,9)+ getNumber(0,9) + getNumber(0,9)
+                   });
+
+
+                });
+
+            });      
+
+
+
+
+        </script>
+
+
+        <style type="text/css">
+            .block {
+                width:  50px;
+                height: 50px;
+                margin-bottom: 20px;
+                border-radius: 5px;
+            }
+        </style>
+
+    </head>
+
+
+    <body>
+        <button id="addBlock">Добавить Блок</button>
+        <br />
+        <br />
+        <div id="blocks"></div>
+    </body>
+</html>
+
+
+
