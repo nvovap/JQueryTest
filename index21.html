@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Изучаем библиотеку JQuery</title>
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+        <script type="text/javascript">
+            
+            // $('div').click(function(event) {
+                
+            // });      
+
+
+            $(document).ready(function($) {
+                console.log('Document ready !!!')
+
+                $(document).on('click', '#addComment', function(event) {
+                    event.preventDefault();
+                    
+
+                    var form = $('#form')
+                    form.css({
+                        "display": 'block',
+                    });
+
+
+                    //$('#addComment').replaceWith(form)
+
+
+                    $('#addComment').css({
+                        "display": 'none',
+                    });
+                });
+
+
+                $(document).on('click', 'input[name="send"]', function(event) {
+                    event.preventDefault();
+                    
+                    var comment = $('#textarea').val()
+
+                    $('#textarea').val('')
+
+                    //Here, data send to server
+
+                    console.log(comment)
+
+
+                    $('<p>'+ comment +'</p>').appendTo('#comments')
+
+
+                    var form = $('#form')
+                    form.css({
+                        "display": 'none',
+                    });
+
+                    $('#addComment').css({
+                        "display": 'block',
+                    });
+                });
+            });      
+
+        </script>
+
+    </head>
+
+
+    <body>
+       
+        <div id="comments">
+            <p>Комметарий №1</p>
+            <p>Комметарий №2</p>
+            <p>Комметарий №3</p>
+        </div>
+
+        <form name="form" action="" method="post" id="form" style="display: none" onsubmit="return false">
+            <textarea id="textarea" name="comment" cols="30" rows="10"></textarea>
+            <br />
+
+            <input type="submit" name="send" id="done" value="Добавить комментарий" />
+
+
+
+        </form>
+
+        <a href="#" onclick="return false" id="addComment">Добавить комментарий.</a>
+
+    </body>
+</html>
+
+
+

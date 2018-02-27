@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Изучаем библиотеку JQuery</title>
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+        <script type="text/javascript">
+            
+            // $('div').click(function(event) {
+                
+            // });      
+
+
+            $(document).ready(function($) {
+                console.log('Document ready !!!')
+
+                $('#img').bind('click', function(event) {
+
+                    console.log($(event.target).parent())
+
+                    $(event.target).parent().css({
+                        "text-align" : "center"
+                    });
+
+
+                    $(event.target).animate({
+                        width: $(event.target).width() * 2,
+                        height: $(event.target).height() * 2},
+                        3000, function() {
+                        /* stuff to do after animation is complete */
+                    });
+                });
+
+            });      
+
+
+
+
+        </script>
+
+    </head>
+
+
+    <body>
+        <p id="test" style="background-color: green">
+            <img src="1.png" alt="image" title="image" width="200" id="img" />
+        </p>
+
+    </body>
+</html>
+
+
+

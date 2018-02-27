@@ -15,11 +15,43 @@
 
             $(document).ready(function($) {
                 console.log('Document ready !!!')
+
+                $('div').bind('click', function(event) {
+                    // console.log(event.target);
+                    // console.log(event.target.style.width);
+                    // console.log(event.pageX);
+                    // console.log(event.pageY);
+
+
+                    var width = event.target.style.width
+                    var newWidth = Number(width.substring(0,width.length-2))
+
+                    // console.log(newWidth)
+
+                    event.target.style.width = (newWidth + 5) + "px"
+
+                    $("<p class='pclass'>Координаты мышки при нажатии Screen: x - " + event.screenX + " y - " + event.screenY  + " </p>").insertAfter('div:last');
+                    $("<p>Координаты мышки при нажатии Page: x - " + event.pageX + " y - " + event.pageY + " </p>").insertAfter('.pclass')
+
+                   // $(event.target).unbind()
+
+                    
+                });
+
+
+                $(document).on('click', 'p', function(event) {
+                    event.preventDefault();
+                    
+
+                    console.log("p test")
+                });
             });      
 
         </script>
 
     </head>
+
+
     <body>
        
         <div style="height: 50px; width: 50px; background-color: red"></div>
@@ -27,4 +59,3 @@
         <div style="height: 50px; width: 50px; background-color: green"></div>
     </body>
 </html>
-
